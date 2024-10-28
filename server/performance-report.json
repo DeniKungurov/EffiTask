@@ -1,0 +1,12 @@
+[
+  {
+    "duration": 21,
+    "fullName": "AppController root should return \"Hello from NestJS!\"",
+    "status": "passed"
+  },
+  {
+    "duration": 20,
+    "fullName": "UserRepository should create a user with the correct data",
+    "status": "passed"
+  }
+]

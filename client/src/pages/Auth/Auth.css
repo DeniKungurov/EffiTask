@@ -1,0 +1,72 @@
+.app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: transparent;
+  }
+
+  .auth-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 400px 2px #711259;
+    width: 300px;
+  }
+
+  .auth-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #711259;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .registration-button {
+    margin-bottom: 5%;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #711259;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+
+  :where(.css-dev-only-do-not-override-1hpnbz2).ant-btn-variant-solid:not(:disabled):not(.ant-btn-disabled):hover {
+    background: #db18c1;
+    color: #fff;
+}

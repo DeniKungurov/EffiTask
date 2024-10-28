@@ -12,12 +12,23 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Relation" (
     "id" SERIAL NOT NULL,
-    "UserId" INTEGER NOT NULL,
-    "BusinessEntityId" INTEGER NOT NULL,
+    "userId" INTEGER NOT NULL,
+    "businessEntityId" INTEGER NOT NULL,
+    "relationTypeId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Relation_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "RelationType" (
+    "id" SERIAL NOT NULL,
+    "code" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "RelationType_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -51,10 +62,13 @@ CREATE UNIQUE INDEX "BusinessEntity_name_key" ON "BusinessEntity"("name");
 CREATE UNIQUE INDEX "BusinessEntityType_code_key" ON "BusinessEntityType"("code");
 
 -- AddForeignKey
-ALTER TABLE "Relation" ADD CONSTRAINT "Relation_UserId_fkey" FOREIGN KEY ("UserId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Relation" ADD CONSTRAINT "Relation_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Relation" ADD CONSTRAINT "Relation_BusinessEntityId_fkey" FOREIGN KEY ("BusinessEntityId") REFERENCES "BusinessEntity"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Relation" ADD CONSTRAINT "Relation_relationTypeId_fkey" FOREIGN KEY ("relationTypeId") REFERENCES "RelationType"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Relation" ADD CONSTRAINT "Relation_businessEntityId_fkey" FOREIGN KEY ("businessEntityId") REFERENCES "BusinessEntity"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "BusinessEntity" ADD CONSTRAINT "BusinessEntity_businessEntityTypeId_fkey" FOREIGN KEY ("businessEntityTypeId") REFERENCES "BusinessEntityType"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

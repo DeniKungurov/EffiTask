@@ -11,18 +11,18 @@ model User {
   id        Int        @id @default(autoincrement())
   email     String     @unique
   password  String
-  relations Relation[]
+  relation  Relation[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 }
 
 model Relation {
   id               Int @id @default(autoincrement())
-  UserId           Int
+  userId           Int
   businessEntityId Int
   relationTypeId   Int
 
-  user           User           @relation(fields: [UserId], references: [id])
+  user           User           @relation(fields: [userId], references: [id])
   relationType   RelationType   @relation(fields: [relationTypeId], references: [id])
   businessEntity BusinessEntity @relation(fields: [businessEntityId], references: [id])
   createdAt      DateTime       @default(now())
@@ -31,11 +31,11 @@ model Relation {
 
 model RelationType {
   id        Int      @id @default(autoincrement())
-  code      String
+  code      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  relations            Relation[]
+  relations Relation[]
 }
 
 model BusinessEntity {

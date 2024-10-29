@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserRepository } from './user.repository'; // Путь к вашему файлу UserRepository
 import { PrismaService } from 'src/lib/PrismaService';
-import { RepositoryModule } from './repository.module';
+import { RepositoryModule } from '../repository.module';
 
 describe('UserRepository', () => {
   let userRepository: UserRepository;

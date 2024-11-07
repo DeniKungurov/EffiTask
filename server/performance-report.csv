@@ -1,3 +1,0 @@
-NAME,DURATION,STATUS
-"AppController root should return ""Hello from NestJS!""",21,passed
-UserRepository should create a user with the correct data,20,passed
